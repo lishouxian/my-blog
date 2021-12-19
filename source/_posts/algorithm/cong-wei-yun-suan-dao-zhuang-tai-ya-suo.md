@@ -1,0 +1,217 @@
+---
+title: '从位运算到状态压缩'
+date: 2020-07-03 20:50:18
+tags: [python,动态规划,leetcode]
+categories: algorithm
+published: true
+hideInList: false
+feature: 
+isTop: false
+---
+
+
+
+[1494. 并行课程 II](https://leetcode-cn.com/problems/parallel-courses-ii/)给你一个整数 `n` 表示某所大学里课程的数目，编号为 `1` 到 `n` ，数组 `dependencies` 中， `dependencies[i] = [xi, yi]` 表示一个先修课的关系，也就是课程 `xi` 必须在课程 `yi` 之前上。同时你还有一个整数 `k` 。
+
+在一个学期中，你 **最多** 可以同时上 `k` 门课，前提是这些课的先修课在之前的学期里已经上过了。
+
+请你返回上完所有课最少需要多少个学期。题目保证一定存在一种上完所有课的方式。
+
+嗯哼哼 会不会写呢
+
+<!-- more -->
+
+# 位运算的一些技巧
+
+## 位运算的基本内容
+
+简单来说
+位操作包括：
+
+- ~ 取反（NOT）
+- | 按位或（OR）
+- ^ 按位异或（XOR）
+- & 按位与（AND）
+- 移位 (移位是一个二元运算符，用来将一个二进制数中的每一位全部都向一个方向移动指定位，溢出的部分将被舍弃，而空缺的部分填入一定的值。)
+  - 算术移位
+  - 逻辑移位
+    这里简单解释下
+
+```Python
+a = 21           (1 0 1 0 1)
+b = 11           (0 1 0 1 1)
+c = ~a = -22     (0 1 0 1 0)
+d = a | b = 31   (1 1 1 1 1)
+e = a ^ b = 30   (1 1 1 1 0)
+f = a & b = 1    (0 0 0 0 1)
+1 << 4 = 16      (1 0 0 0 0)
+16 << 2 = 4      (0 0 1 0 0)
+```
+
+## 位运算的经典操作
+
+### 简单的集合部分
+
+```python
+A |=1 << C     # 在集合 A 中加入 C
+A &= ~(1 << C) # 在集合 A 中删除 C 
+A = 1 << C;    # 相当于 A = 2 ** C
+a & (-a)       # lowbit 操作：获得某数的最后一位为 1 的数字
+A = 0          # 将 A 置空
+All = (1 << 15) - 1;  # 将 All 置满
+(A & B) == B   # B 是否为 A 的子集
+```
+
+### 子集
+
+求排列组合是LeetCode周赛中常见的一个组成部分，如何快速简单的求排列组合呢：
+在LeetCode[1178. 猜字谜](https://leetcode-cn.com/problems/number-of-valid-words-for-each-puzzle/)中有一个非常巧妙的方法：使用位运算。
+这里的原始集合是一个原始单词的二进制位集合- ::单词中字母的数量不影响::，如下便是单词`abd`的二进制位集合。
+
+```
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1
+z y x w v u t s r q p o n m l k j i h g f e d c b a
+```
+
+如何求这个集合的子集呢，即所有字母都在原始单词中出现过的单词的二进制位集合。例如`be`、`a`等的二进制位集合分别是`0110`、`0001`。
+
+```
+subMask = originalMask = 1011 // [d, b, a]
+subMask = (subMask - 1) & originalMask = (1011 - 1) & 1011 = 1010 
+subMask = (subMask - 1) & originalMask = (1010 - 1) & 1011 = 1001 
+subMask = (subMask - 1) & originalMask = (1001 - 1) & 1011 = 1000 
+subMask = (subMask - 1) & originalMask = (1000 - 1) & 1011 = 0011 
+subMask = (subMask - 1) & originalMask = (0011 - 1) & 1011 = 0010
+subMask = (subMask - 1) & originalMask = (0010 - 1) & 1011 = 0001
+subMask = (subMask - 1) & originalMask = (0001 - 1) & 1011 = 0000
+```
+
+简单用代码实现
+
+```python
+subMask = originalMask
+count = {subMask}
+while subMask:
+    subMask = (subMask - 1) & originalMask
+    count.add(submask)
+```
+
+由此便优雅的完成子集的统计。
+
+### [1494. 并行课程 II](https://leetcode-cn.com/problems/parallel-courses-ii/)
+
+给你一个整数 `n` 表示某所大学里课程的数目，编号为 `1` 到 `n` ，数组 `dependencies` 中， `dependencies[i] = [xi, yi]` 表示一个先修课的关系，也就是课程 `xi` 必须在课程 `yi` 之前上。同时你还有一个整数 `k` 。
+
+在一个学期中，你 **最多** 可以同时上 `k` 门课，前提是这些课的先修课在之前的学期里已经上过了。
+
+请你返回上完所有课最少需要多少个学期。题目保证一定存在一种上完所有课的方式。
+
+**示例 1：**
+
+**![img](https://tva1.sinaimg.cn/large/007S8ZIlly1gge2rhffrjj307h043jr9.jpg)**
+
+```
+输入：n = 4, dependencies = [[2,1],[3,1],[1,4]], k = 2
+输出：3 
+解释：上图展示了题目输入的图。在第一个学期中，我们可以上课程 2 和课程 3 。然后第二个学期上课程 1 ，第三个学期上课程 4 。
+```
+
+**示例 2：**
+
+**![img](https://tva1.sinaimg.cn/large/007S8ZIlly1gge2riauk8j307j05va9z.jpg)**
+
+```
+输入：n = 5, dependencies = [[2,1],[3,1],[4,1],[1,5]], k = 2
+输出：4 
+解释：上图展示了题目输入的图。一个最优方案是：第一学期上课程 2 和 3，第二学期上课程 4 ，第三学期上课程 1 ，第四学期上课程 5 。
+```
+
+**示例 3：**
+
+```
+输入：n = 11, dependencies = [], k = 2
+输出：6
+```
+
+**提示：**
+
+- `1 <= n <= 15`
+- `1 <= k <= n`
+- `0 <= dependencies.length <= n * (n-1) / 2`
+- `dependencies[i].length == 2`
+- `1 <= xi, yi <= n`
+- `xi != yi`
+- 所有先修关系都是不同的，也就是说 `dependencies[i] != dependencies[j]` 。
+- 题目输入的图是个有向无环图。
+
+### 解答
+
+深度遍历 + 剪枝也能通过
+
+思路很简单 就是深度遍历，在入度为0的课程个数大于K时直接遍历所有组合
+上面的思路时间复杂度太高了，于是对于于遍历过程中的相同情况进行剪枝
+
+都不知道` help = sum(2 ** i for i in is0) `其实就是状态压缩
+
+实际上动态规划会更好一些，这题会有详细解答的更新。
+
+```python
+import copy
+from itertools import combinations
+
+class Solution:
+    def minNumberOfSemesters(self, n: int, dependencies, k: int) -> int:
+        # 遍历 + 剪枝
+        global res
+        depend = [0 for _ in range(n)]
+        root = [[] for _ in range(n)]
+        ways = {}
+        res = 16
+
+        for a, b in dependencies:
+            root[a-1].append(b-1)
+            depend[b-1] += 1
+
+        def backtrack(choice,step,k,n):
+
+            global res
+            if max(choice) == -1:
+                res = min(res,step)
+                return 0
+            step += 1
+            tempnum = 0
+            is0 = []
+            for i in range(len(choice)):
+                if choice[i] == 0:
+                    tempnum += 1
+                    is0.append(i)
+
+            help = sum(2 ** i for i in is0)
+            if help in ways and ways[help] <= step:
+                #pass
+                return 0
+            else:
+                ways[help] = step
+
+            if tempnum <= k:
+                for i in is0:
+
+                    choice[i] -= 1
+                    for j in root[i]:
+                        choice[j] -= 1
+                backtrack(choice,step,k,n)
+            else:
+                for temp2 in combinations(is0,k):
+                    temp3 = copy.deepcopy(choice)
+                    for i in temp2:
+                        temp3[i] -= 1
+                        for j in root[i]:
+                            temp3[j] -= 1
+                    backtrack(temp3,step,k,n)
+
+        backtrack(depend,0,k,n)
+        
+        return res
+
+```
+

@@ -1,0 +1,252 @@
+---
+title: '股票问题通用解法'
+date: 2020-04-02 00:14:55
+tags: [动态规划,leetcode]
+categories: algorithm
+published: true
+hideInList: false
+feature: 
+isTop: false
+---
+本文设计到六道股票问题的求解方法
+
+- [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/)
+
+- [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+- [买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+
+- [买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)
+
+- [最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+
+- [买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+
+<!-- more -->
+
+简单来说，这六道股票问题的本质都是一样的，但是复杂度有所不同，解决方法都是动态规划！！！
+
+首先看第一道题
+
+## [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/)
+
+难度 `简单`
+
+给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+
+如果你最多只允许完成一笔交易（即买入和卖出一支股票一次），设计一个算法来计算你所能获取的最大利润。
+
+注意：你不能在买入股票前卖出股票。
+
+ 示例 1:
+
+> 输入: [7,1,5,3,6,4]
+> 输出: 5
+> 解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 
+> 注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。
+
+示例 2:
+
+> 输入: [7,6,4,3,1]
+> 输出: 0
+> 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+
+### 暴力法
+
+理解起来很简单，就是暴力搜索所有的买卖可能，自然复杂度也高达O(n^2)。
+
+```Python
+# 此方法会超时
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        ans = 0
+        for i in range(len(prices)):
+            for j in range(i + 1, len(prices)):
+                ans = max(ans, prices[j] - prices[i])
+        return ans
+
+```
+
+### 一次遍历
+
+![Profit Graph](https://tva1.sinaimg.cn/large/007S8ZIlly1gdteaida5qj30g209gaad.jpg)
+
+在遍历的过程中，我们记录`minprice`即历史最低价，记录`maxprofit`即最大利润。每一天我们都用这样的方式来更新历史最低价：更新最大利润：将最大利润与`price - minprice`比较，记录更大的那个。最后我们输出最大利润便可。
+
+```Python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        inf = int(1e9)
+        minprice = inf
+        maxprofit = 0
+        for price in prices:
+            maxprofit = max(price - minprice, maxprofit) #这是dp方程
+            minprice = min(price, minprice)
+        return maxprofit
+```
+
+## [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
+难度 `简单`
+
+给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+ 
+
+示例 1:
+
+>输入: [7,1,5,3,6,4]
+输出: 7
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。
+
+示例 2:
+
+> 输入: [1,2,3,4,5]
+> 输出: 4
+> 解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。
+> 注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。
+> 因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+
+示例 3:
+
+> 输入: [7,6,4,3,1]
+> 输出: 0
+> 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
+
+
+提示：
+
+> 1 <= prices.length <= 3 * 10 ^ 4
+> 0 <= prices[i] <= 10 ^ 4
+
+### 一次遍历
+
+可以多次购买，即每天可能较前一天所获得的`利润`相加。
+
+```python 
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:return 0
+        count = 0
+        
+        for i in range(1,len(prices)):
+            if prices[i] > prices[i-1]:
+                count = count + prices[i] - prices[i-1]
+                
+        return count
+```
+
+## [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+
+难度 `困难`
+
+给定一个数组，它的第 *i* 个元素是一支给定的股票在第 *i* 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 *两笔* 交易。
+
+**注意:** 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+**示例 1:**
+
+> 输入: [3,3,5,0,0,3,1,4]
+> 输出: 6
+> 解释: 在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。
+>      随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。
+
+
+**示例 2:**
+
+> 输入: [1,2,3,4,5]
+> 输出: 4
+> 解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。   
+>      注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。   
+>      因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+
+
+**示例 3:**
+
+> 输入: [7,6,4,3,1] 
+> 输出: 0 
+> 解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
+
+
+
+这是一道困难等级的题，相比前两题有很大的难度提升。
+
+### 暴力法(不通过)
+
+> 很容易想到求出收益第一高和第二高的两次买卖，然后加起来。对于普通的情况是可以解决的，但是对于下边的情况
+> 1 5 2 8 3 10
+> 第一天买第二天卖，第三天买第四天卖，第五天买第六天卖，三次收益分别是 4，6，7，最高的两次就是 6 + 7 = 13 了，但是我们第二天其实可以不卖出，第四天再卖出，那么收益是 8 - 1 = 7，再加上第五天买入第六天卖出的收益就是 7 + 7 = 14了。
+>
+> 参考[windliang](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--29/)
+
+### 二维动态规划
+
+动态规划最关键是动态规划数组和状态转移方程。
+
+**动态规划数组**
+
+按照最简单的动态规划思想：用 `dp[i]`表示前`i`天的最高收益，那么 `dp[i]` 怎么根据 `dp[i-n]` 求出来呢？
+
+这里的`dp[i]`和当前的交易次数相关，对于这样有两个与结果相关的变量的动态规划问题，一般会使用二维动态规划数组。
+
+用 `dp[i][k]` 表示前`i`天最多交易`k`次的最高收益，那么 `dp[i][k]` 怎么通过之前的解求出来呢？
+
+![img](https://tva1.sinaimg.cn/large/007S8ZIlly1gdwso8ibvlj305l09qdfr.jpg)
+
+`dp[i][k] = Max(dp[i-1][k],prices[i] - prices[j] + dp[j][k-1])`，`j` 取 `0 - i`
+
+```Python
+public int maxProfit(int[] prices) {
+    if (prices.length == 0) {
+        return 0;
+    } 
+    int dp1 = 0;
+    int dp2 = 0;
+    int min1 = prices[0];
+    int min2 = prices[0];
+    for (int i = 1; i < prices.length; i++) {
+            min1 = Math.min(prices[i] - 0, min1);
+            dp1 = Math.max(dp1, prices[i] - min1);
+
+            min2 = Math.min(prices[i] - dp1, min2);
+            dp2 = Math.max(dp2, prices[i] - min2);
+    }
+    return dp2;
+}
+```
+
+## [买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)
+
+难度`困难`
+
+给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
+
+注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+示例 1:
+
+> 输入: [2,4,1], k = 2
+> 输出: 2
+> 解释: 在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。
+
+示例 2:
+
+> 输入: [3,2,6,5,0,3], k = 2
+> 输出: 7
+> 解释: 在第 2 天 (股票价格 = 2) 的时候买入，在第 3 天 (股票价格 = 6) 的时候卖出, 这笔交易所能获得利润 = 6-2 = 4 。
+> 随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
+
+### 二维动态规划
+
+有了上一题的基础，这道题的解答比较简单。
+
+
