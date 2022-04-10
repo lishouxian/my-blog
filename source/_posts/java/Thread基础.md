@@ -204,11 +204,11 @@ JVM中由堆、栈、方法区所组成，其中的栈就是给线程使用，�
 
 - 从操作系统层面来描述有五种状态：
 
-![线程生命周期](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gilcz34ivbj31zc0n0jwk.jpg)
+![线程生命周期](Thread基础/007S8ZIlly1gilcz34ivbj31zc0n0jwk-20220410215607571.jpg)
 
 - 从Java API层面来讲：
 
-<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gkb3jroiobj31fc0t4diq.jpg" alt="Java多线程" style="zoom:40%;" />
+<img src="Thread基础/0081Kckwly1gkb3jroiobj31fc0t4diq-20220410215610087.jpg" alt="Java多线程" style="zoom:40%;" />
 
 ### Thread类中的常用方法
 

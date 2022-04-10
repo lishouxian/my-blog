@@ -32,7 +32,7 @@ isTop: false
 - View： 指JSP、HTML等用来展示数据给用户
 - Controller： 用来接受用户的请求，整个流程的控制器。用来进行数据校验等。
 
-![三层架构](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gic400ei2uj31dp0u0dku.jpg)
+![三层架构](springmvc/007S8ZIlly1gic400ei2uj31dp0u0dku-20220410215548900.jpg)
 
 ## SpringMVC的入门案例
 
@@ -188,7 +188,7 @@ public class HelloController {
    4. 根据执行方法的返回值，再根据配置试图解析器，去指定的目录下寻找jsp文件
    5. Tomcat服务器响应
 
-   ![MVC执行过程](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gic4p6e2yhj32480u04mh.jpg)
+   ![MVC执行过程](springmvc/007S8ZIlly1gic4p6e2yhj32480u04mh-20220410215554225.jpg)
 
 2. 入门案例中的组件分析
    1. 前端控制器(DispatcherServlet) 

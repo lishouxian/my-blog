@@ -161,7 +161,7 @@ public class HelloServlet2 extends HttpServlet {
 
 ### 使用IDEA创建Servlet程序
 
-![image-20200822152405790](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1ghzyida7vxj30u00wljww.jpg)
+![image-20200822152405790](servlet/007S8ZIlly1ghzyida7vxj30u00wljww-20220410215531710.jpg)
 
 
 

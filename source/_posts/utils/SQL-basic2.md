@@ -138,7 +138,7 @@ delete from emp where comm is null;
 
 - 数据库提供的4种事务隔离级别：
 
-  ![1555586275271](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gix6gw0a1mj30lu0680ur.jpg)
+  ![1555586275271](SQL-basic2/007S8ZIlly1gix6gw0a1mj30lu0680ur-20220410220017238.jpg)
 
 - Oracle 支持的 2 种事务隔离级别：**READ COMMITED**, SERIALIZABLE。 Oracle 默认的事务隔离级别为: **READ COMMITED** 。
 

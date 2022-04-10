@@ -50,9 +50,9 @@ conda env export > environment.yaml (将环境中各个包的版本保存到envi
 
 为工程启用对应的环境。具体方式有两种，分别是在创立工程的时候就选择相对应的环境，第二种是在工程创立完成后更改或启用相对应的环境。两种方法都需要首先在pycharm中找到创建的环境。
 
-![](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/pycharm.png)
+![](Python深度学习环境配置/pycharm-20220410215945316.png)
 在pycharm中具体位置为file-setting-project-interpreter中，选择小齿轮-add后
 
-![](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/environment.png)
+![](Python深度学习环境配置/environment-20220410215948133.png)
 选择conda environment-existing environment后在interpreter中选择新环境的python.exe的路径即可。
 多环境的配置就完成了。

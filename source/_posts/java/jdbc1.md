@@ -58,7 +58,7 @@ isTop: false
 
 - 举例：
 
-  ![1555576477107](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gi6jr5ienwj30a902y0sn.jpg)
+  ![1555576477107](jdbc1/007S8ZIlly1gi6jr5ienwj30a902y0sn-20220410215456652.jpg)
 
 - **几种常用数据库的 JDBC URL**
 

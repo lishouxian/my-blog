@@ -93,7 +93,7 @@ MySQL AB是由两个瑞典人和一个芬兰人：David Axmark、Allan Larsson�
 show databases; #查看和指定现有的数据库
 ```
 
-![image-20200919215834498](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giwb1e5o3vj30ci0fg75a.jpg)
+![image-20200919215834498](SQL-basic/007S8ZIlly1giwb1e5o3vj30ci0fg75a-20220410220003581.jpg)
 
 ```mysql
 use mail_oms; #指定当前缺省数据库
@@ -106,13 +106,13 @@ mail_pms> use mail_oms
 show tables  #查看当前库中的表
 ```
 
-![image-20200919220033275](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giwb3fajalj30fq0bot9l.jpg)
+![image-20200919220033275](SQL-basic/007S8ZIlly1giwb3fajalj30fq0bot9l-20220410220006287.jpg)
 
 ```mysql
 desc oms_order_item; #查看表的结构
 ```
 
-![image-20200919220210313](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giwb53m9y3j317c0qwq81.jpg)
+![image-20200919220210313](SQL-basic/007S8ZIlly1giwb53m9y3j317c0qwq81-20220410220007367.jpg)
 
 ```mysql
 show create table <table name>; #查勘表的创建语句
