@@ -27,7 +27,7 @@ Git 属于分布式版本控制系统，而 SVN 属于集中式。
 
 Git 的版本库有一个称为 Stage 的暂存区以及最后的 History 版本库，History 存储所有分支信息，使用一个 HEAD 指针指向当前分支。
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1givq7g9kv9j30ns1dsjug.jpg" alt="git" style="zoom:30%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1givq7g9kv9j30ns1dsjug.jpg" alt="git" style="zoom:30%;" />
 
 
 
@@ -235,7 +235,7 @@ index e6076a0..91e28e3 100644
 
 在版本控制中，使用多条线同时推进，这就叫做分支
 
-![image-20200919144038677](https://tva1.sinaimg.cn/large/007S8ZIlly1givydp2l45j30bj04cdg2.jpg)
+![image-20200919144038677](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1givydp2l45j30bj04cdg2.jpg)
 
 ### 分支的好处
 

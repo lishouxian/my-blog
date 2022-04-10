@@ -28,7 +28,7 @@ plt.show()
 
 <!-- more -->
 
-![Com_e](https://tva1.sinaimg.cn/large/007S8ZIlly1gdx7mb1iiij30hs0dc74u.jpg)
+![Com_e](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gdx7mb1iiij30hs0dc74u.jpg)
 
 
 
@@ -63,7 +63,7 @@ plt.show()
 
 ```
 
-![Com_e](https://tva1.sinaimg.cn/large/007S8ZIlly1gdx7mhv62wj30hs0dcjs2.jpg)
+![Com_e](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gdx7mhv62wj30hs0dcjs2.jpg)
 
 ### 柱状图
 
@@ -102,4 +102,4 @@ ax2.set_ylabel("Times")
 plt.show()
 ```
 
-![image](https://tva1.sinaimg.cn/large/007S8ZIlly1ge2wsg5en4j30hs0dczkm.jpg)
+![image](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1ge2wsg5en4j30hs0dczkm.jpg)

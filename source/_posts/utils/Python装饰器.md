@@ -35,8 +35,5 @@ def is_prime(num):
     return True
   else:
     for i in range(2,num):
-      
-  
-
 ```
 

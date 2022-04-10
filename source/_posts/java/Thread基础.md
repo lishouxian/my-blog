@@ -33,8 +33,8 @@ isTop: false
   - 程序需要同时执行两个或者多个任务
   - 程序需要实现一些需要等待的任务时，如用户输入、文件读写、网络操作、搜索等
   - 需要一些后台运行的程序时
-  
-  
+
+<!-- more -->
 
 
 ## 多线程的创建与应用
@@ -204,11 +204,11 @@ JVM中由堆、栈、方法区所组成，其中的栈就是给线程使用，�
 
 - 从操作系统层面来描述有五种状态：
 
-![线程生命周期](https://tva1.sinaimg.cn/large/007S8ZIlly1gilcz34ivbj31zc0n0jwk.jpg)
+![线程生命周期](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gilcz34ivbj31zc0n0jwk.jpg)
 
 - 从Java API层面来讲：
 
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gkb3jroiobj31fc0t4diq.jpg" alt="Java多线程" style="zoom:40%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gkb3jroiobj31fc0t4diq.jpg" alt="Java多线程" style="zoom:40%;" />
 
 ### Thread类中的常用方法
 
@@ -688,109 +688,3 @@ public class ThreadPool {
     }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

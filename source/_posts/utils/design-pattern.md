@@ -44,7 +44,7 @@ isTop: false
 
 但是此时类B和类D任然需要实现所有方法
 
-![B](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0lawgdjzj30k80c8aap.jpg)
+![B](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0lawgdjzj30k80c8aap.jpg)
 
 将上述的接口1分解成三个接口，这样
 
@@ -52,7 +52,7 @@ isTop: false
 
 类C通过接口Interface1和接口Interface2依赖类D
 
-![A](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0lawzen3j31a60fc41w.jpg)
+![A](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0lawzen3j31a60fc41w.jpg)
 
 ### 依赖倒转原则(Dependence Inversion Principe)
 
@@ -62,9 +62,9 @@ isTop: false
 4. 细节具有多变性，接口就稳定得多
 5. 接口和抽象类的目的是定义好规范
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giyj5tkzr4j30dm0gy74s.jpg" alt="Dependecy" style="zoom: 80%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giyj5tkzr4j30dm0gy74s.jpg" alt="Dependecy" style="zoom: 80%;" />
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giyjdl42h3j30f20pcjs9.jpg" alt="Dependecy1" style="zoom: 73%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giyjdl42h3j30f20pcjs9.jpg" alt="Dependecy1" style="zoom: 73%;" />
 
 依赖关系传递的三种方式和应用案例
 
@@ -158,7 +158,7 @@ class ChangHong implements ITV {
 }
 ```
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giyjfybrlzj30f20pcjs9.jpg" alt="DependencyPass" style="zoom:70%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giyjfybrlzj30f20pcjs9.jpg" alt="DependencyPass" style="zoom:70%;" />
 
 依赖倒转原则的注意事项和细节
 
@@ -176,11 +176,11 @@ oo中的继承性的思考和说明
 
 达到的效果。里氏替换原则告诉我们尽量不要重写父类中的方法，如果真的要替换，我们可以让原有的父类和子类都继承一个更加基础的基类
 
-![lis](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0law125cj30aq0cc3yv.jpg)
+![lis](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0law125cj30aq0cc3yv.jpg)
 
 A和B的耦合关系被断开，提出一个新的base类来聚合AB两个类
 
-![lisok](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0lavltpbj30k80c8aap.jpg)
+![lisok](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0lavltpbj30k80c8aap.jpg)
 
 ### 开闭原则(Open Close Principe)
 
@@ -189,11 +189,11 @@ A和B的耦合关系被断开，提出一个新的base类来聚合AB两个类
 3. 软件需要变化时是扩展软件的实体行为来实现变化，而不是修改已有的代码来实现变化。
 4. 其他原则，以及使用设计模式的目的就是遵循开闭的原则
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giykv688a4j30t40ja0ty.jpg" alt="ocp" style="zoom:60%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giykv688a4j30t40ja0ty.jpg" alt="ocp" style="zoom:60%;" />
 
 
 
-![OCPok](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0laxuxpfj31a60hi76p.jpg)
+![OCPok](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0laxuxpfj31a60hi76p.jpg)
 
 改进的思路：
 
@@ -209,9 +209,9 @@ A和B的耦合关系被断开，提出一个新的base类来聚合AB两个类
 4. 迪米特法则有一个更加简单的定义：至于直接朋友通信。
 5. 只要两个对象之间有耦合关系，我们就说这两个对象之间是朋友关系，其中我们成出现在成员变量，方法参数，方法返回值中的类为直接朋友。
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giyltd4cwuj30o60msmyd.jpg" alt="Demeter" style="zoom:60%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giyltd4cwuj30o60msmyd.jpg" alt="Demeter" style="zoom:60%;" />
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giylufjh06j30p60lgwfh.jpg" alt="demeterok" style="zoom:60%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giylufjh06j30p60lgwfh.jpg" alt="demeterok" style="zoom:60%;" />
 
 - 迪米特法则降低了类之间的耦合
 - 但是同时注意：由于每个类都减少了不必要的依赖，因此迪米特法则只是要求降低类之间耦合关系，并不是完全没有耦合关系。
@@ -416,17 +416,17 @@ enum Singleton {
 
 
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giz738ohptj30u00vu76w.jpg" alt="SimpleFactory" style="zoom:60%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giz738ohptj30u00vu76w.jpg" alt="SimpleFactory" style="zoom:60%;" />
 
 
 
 ### 工厂方法模式
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giz7gq7vmkj31ds0s2q4u.jpg" alt="factoryMethod" style="zoom:80%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giz7gq7vmkj31ds0s2q4u.jpg" alt="factoryMethod" style="zoom:80%;" />
 
 ### 抽象工厂模式
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1giz9fvofeej31ig0ty40v.jpg" alt="absFactory" style="zoom:80%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giz9fvofeej31ig0ty40v.jpg" alt="absFactory" style="zoom:80%;" />
 
 
 
@@ -526,7 +526,7 @@ public class DeepProtoType implements Serializable, Cloneable{
 3. ConcreteBuilder(具体建造者)：实现接口，构建和装配各个部件。
 4. Direcrtor(指挥者)：构建一个使用builder接口的对象。它主要是用于创建一个复杂对象。它主要由两个作用，一是：隔离了客户与对象的生产过程，二是：负责控制产品对象的生产过程
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gizhviogirj30va0u0mzj.jpg" alt="Builder" style="zoom:60%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gizhviogirj30va0u0mzj.jpg" alt="Builder" style="zoom:60%;" />
 
 ## 适配器模式(Adapter Pattern)
 
@@ -545,7 +545,7 @@ public class DeepProtoType implements Serializable, Cloneable{
 
 ### 类适配器
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gizj68fcn3j30q00gygmh.jpg" alt="adapter" style="zoom:80%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gizj68fcn3j30q00gygmh.jpg" alt="adapter" style="zoom:80%;" />
 
 代码实现：
 
@@ -632,7 +632,7 @@ public class VoltageAdapter  implements IVoltage5V {
 }
 ```
 
-![adapter2](https://tva1.sinaimg.cn/large/007S8ZIlly1gj0layt5hoj30ti0i8768.jpg)
+![adapter2](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gj0layt5hoj30ti0i8768.jpg)
 
 ### 接口适配器
 
@@ -659,4 +659,4 @@ public abstract class AbsAdapter implements Interface4 {
 }
 ```
 
-<img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gizpib6d4zj30bg0oagmh.jpg" alt="AbsAdapter" style="zoom:67%;" />
+<img src="https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gizpib6d4zj30bg0oagmh.jpg" alt="AbsAdapter" style="zoom:67%;" />

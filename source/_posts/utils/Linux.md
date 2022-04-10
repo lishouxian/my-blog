@@ -43,7 +43,7 @@ dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot
 ……
 ```
 
-![img](https://tva1.sinaimg.cn/large/007S8ZIlly1giv3yh00s4j30e80b8wfu.jpg)
+![img](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giv3yh00s4j30e80b8wfu.jpg)
 
 ### Linux的文件与目录管理
 
@@ -177,7 +177,7 @@ ext3/ext4 文件系统引入了日志功能，可以利用日志来修复文件�
 - /usr (unix software resource)：所有系统默认软件都会安装到这个目录；
 - /var (variable)：存放系统或程序运行过程中的数据文件。
 
-![img](https://tva1.sinaimg.cn/large/007S8ZIlly1giy2ngzqb2j30ic08p0to.jpg)
+![img](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giy2ngzqb2j30ic08p0to.jpg)
 
 ## 进程管理
 
@@ -216,7 +216,7 @@ pstree -A
 
 ### 进程状态
 
-![进程管理](https://tva1.sinaimg.cn/large/007S8ZIlly1giv2slez5yj31ae0u043k.jpg)
+![进程管理](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1giv2slez5yj31ae0u043k.jpg)
 
 | 状态 | 说明                                                         |
 | ---- | ------------------------------------------------------------ |

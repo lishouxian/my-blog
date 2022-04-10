@@ -42,13 +42,13 @@ MyISAM和InnoDB
 
 - 手写
 
-![](https://tva1.sinaimg.cn/large/0081Kckwly1gk9wf3l6pyj30fw0en3zn.jpg)
+![](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gk9wf3l6pyj30fw0en3zn.jpg)
 
 - 机读
 
 随着SQL版本的更新，其优化器也在不断升级，优化器会分析不同的执行顺序产生的性能消耗不同而动态调整执行顺序
 
-![](https://tva1.sinaimg.cn/large/0081Kckwly1gk9wgqbe5wj30ch0adgmo.jpg)
+![](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gk9wgqbe5wj30ch0adgmo.jpg)
 
 ## 数据库索引
 
@@ -156,7 +156,7 @@ ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` 
 
 ### 主从复制
 
-![master-slave](https://tva1.sinaimg.cn/large/0081Kckwly1gk9x0425i6j30jk09l0ut.jpg)
+![master-slave](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gk9x0425i6j30jk09l0ut.jpg)
 
 1. master将改变记录到二进制日志(binary log)。这些记录的过程叫做二进制日志事件(binary log events)
 2. slave将master的二进制日志事件(binary log events)拷贝到他的中继日志(relay log)
@@ -164,7 +164,7 @@ ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` 
 
 ### 读写分离
 
-![master-slave-proxy](https://tva1.sinaimg.cn/large/0081Kckwly1gk9x0eqiyfj30hk0au0u7.jpg)
+![master-slave-proxy](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/0081Kckwly1gk9x0eqiyfj30hk0au0u7.jpg)
 
 主服务器处理写操作以及实时性要求比较高的读操作，而从服务器处理读操作。
 

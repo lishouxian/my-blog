@@ -180,7 +180,7 @@ public void update(Connection conn ,String sql, Object... args) {
 
 - 数据库提供的4种事务隔离级别：
 
-![1555586275271](https://tva1.sinaimg.cn/large/007S8ZIlly1gi9rdmk2caj30lu0680ur.jpg)
+![1555586275271](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gi9rdmk2caj30lu0680ur.jpg)
 
 - Oracle 支持的 2 种事务隔离级别：**READ COMMITED**, SERIALIZABLE。 Oracle 默认的事务隔离级别为: **READ COMMITED** 
 
@@ -251,7 +251,7 @@ grant select,insert,delete,update on atguigudb.* to tom@localhost identified by 
 
 - **工作原理：**
 
-![1555593598606](https://tva1.sinaimg.cn/large/007S8ZIlly1gi6qwygh07j30fj067wf3.jpg)
+![1555593598606](https://blog-1251782526.cos.ap-shanghai.myqcloud.com/uPic/007S8ZIlly1gi6qwygh07j30fj067wf3.jpg)
 
 - **数据库连接池技术的优点**
 
